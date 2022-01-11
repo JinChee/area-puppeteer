@@ -17,7 +17,7 @@ const spinner2 = ora({
 
 const provinces = require('./provinces')['86'];
 const pcodes = [];
-const target = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2016/#{route}.html';
+const target = 'http://www.stats.gov.cn/tjsj/tjbz/tjyqhdmhcxhfdm/2021/#{route}.html';
 
 let cities = [];
 
@@ -54,7 +54,7 @@ async function getCitiesByPCode (page, pcode) {
         list.forEach(el => {
             const t = el.innerText.split('\t');
             cities.push({
-                code: t[0], 
+                code: t[0],
                 text: t[1],
                 parentCode: parentCode
             });
@@ -80,7 +80,7 @@ async function getAreasByCCode (page, city) {
         list.forEach(el => {
             const t = el.innerText.split('\t');
             areas.push({
-                code: t[0], 
+                code: t[0],
                 text: t[1],
                 parentCode: `${city.code}`
             })
